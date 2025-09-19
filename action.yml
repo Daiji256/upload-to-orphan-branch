@@ -2,7 +2,7 @@ name: "Upload to orphan branch"
 description: "Upload files to an orphan branch."
 author: "Daiji256"
 branding:
-  icon: "upload-cloud"
+  icon: "upload"
   color: "gray-dark"
 
 inputs:
