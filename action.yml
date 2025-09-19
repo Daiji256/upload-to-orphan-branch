@@ -59,5 +59,4 @@ runs:
         IF_NO_FILES_FOUND: ${{ inputs.if-no-files-found }}
         OVERWRITE: ${{ inputs.overwrite }}
         INCLUDE_HIDDEN_FILES: ${{ inputs.include-hidden-files }}
-      run: |
-        bash ./main.sh
+      run: bash ${{ github.action_path }}/main.sh
