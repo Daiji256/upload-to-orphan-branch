@@ -29,20 +29,24 @@ is_hidden_file() {
 
 shopt -s globstar
 declare -A files=()
-for file_path in $FILES_PATH; do
-  if [[ "${file_path:0:1}" == "!" ]]; then
-    while IFS= read -r -d "" file; do
-      unset "files[$file]"
-    done < <(find "${file_path:1}" -type f -print0)
+while IFS= read -r file_path_glob; do
+  if [[ "${file_path_glob:0:1}" == "!" ]]; then
+    while IFS= read -r -d "" file_path; do
+      while IFS= read -r -d "" file; do
+        unset "files[$file]"
+      done < <(find "$file_path" -type f -print0)
+    done < <(find . -path "${file_path_glob:1}" -print0)
   else
-    while IFS= read -r -d "" file; do
-      if [[ "$INCLUDE_HIDDEN_FILES" == "false" ]] && is_hidden_file "$file"; then
-        continue
-      fi
-      files["$file"]=1
-    done < <(find "$file_path" -type f -print0)
+    while IFS= read -r -d "" file_path; do
+      while IFS= read -r -d "" file; do
+        if [[ "$INCLUDE_HIDDEN_FILES" == "false" ]] && is_hidden_file "$file"; then
+          continue
+        fi
+        files["$file"]=1
+      done < <(find "$file_path" -type f -print0)
+    done < <(find . -path "$file_path_glob" -print0)
   fi
-done
+done <<<"$FILES_PATH"
 
 if [[ "$IF_NO_FILES_FOUND" = "error" && ${#files[@]} -eq 0 ]]; then
   echo "No files found" >&2
