@@ -54,7 +54,7 @@ jobs:
           touch dir/{foo,bar}
       - uses: daiji256/upload-to-orphan-branch@v0.1.2
         with:
-          branch: generated-artifacts
+          branch: artifacts-branch-name
           path: |
             dir
             !**/bar
