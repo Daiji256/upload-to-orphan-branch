@@ -1,14 +1,14 @@
 # daiji256/upload-to-orphan-branch
 
-Upload selected files to a Git orphan branch (a branch with no parents) so you can persist small generated artifacts (images, JSON, text) and reference them in Issues / PRs / other workflows.
+During a GitHub Actions workflow, this action uploads selected files to a Git orphan branch (a branch with no parents). It allows you to persist small generated artifacts (images, JSON, text) and reference them in Issues, PRs, or other workflows.
 
-A download action is available at [daiji256/download-from-orphan-branch](https://github.com/Daiji256/download-from-orphan-branch) and end-to-end usage examples are in [example](https://github.com/Daiji256/orphan-branch-upload-download-delete-examples).
+A companion download action is available at [daiji256/download-from-orphan-branch](https://github.com/Daiji256/download-from-orphan-branch). End-to-end usage examples are provided in [orphan-branch-upload-download-delete-examples](https://github.com/Daiji256/orphan-branch-upload-download-delete-examples).
 
 ## Why use an orphan branch
 
 - No history; artifacts stay isolated from main code history.
 - Persists while the branch exists (unlike cache or ephemeral workflow artifacts).
-- Easy to embed raw URLs in Issues / PRs / README.
+- Easy to embed raw URLs in Issues, PRs, or README.
 - Shared state across workflows without external storage.
 
 ## How it works
@@ -16,7 +16,7 @@ A download action is available at [daiji256/download-from-orphan-branch](https:/
 1. Resolve the file list from your `path` patterns (recursively for directories, supports exclusions).
 2. Create (or switch to) a detached worktree.
 3. Start a new orphan branch (`git switch --orphan`), add the files, commit (an empty commit is allowed).
-4. Push (force if `overwrite=true`).
+4. Push (force if `overwrite: true`).
 
 ## Inputs
 
@@ -31,7 +31,7 @@ A download action is available at [daiji256/download-from-orphan-branch](https:/
 | overwrite            | false                                                 | `true`: force-push to replace branch; `false`: normal push.                  |
 | include-hidden-files | false                                                 | `true`: include dotfiles / hidden paths.                                     |
 
-## Notes / Limitations
+## Notes
 
 - Not intended for large or frequently changing binary blobs (repository size will grow).
 - Force pushing (`overwrite: true`) rewrites the branch history each run.
