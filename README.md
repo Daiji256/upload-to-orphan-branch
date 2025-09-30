@@ -2,7 +2,7 @@
 
 During a GitHub Actions workflow, this action uploads selected files to a Git orphan branch (a branch with no parents). It allows you to persist small generated artifacts (images, JSON, text) and reference them in Issues, PRs, or other workflows.
 
-A companion download action is available at [daiji256/download-from-orphan-branch](https://github.com/Daiji256/download-from-orphan-branch). End-to-end usage examples are provided in [orphan-branch-upload-download-delete-examples](https://github.com/Daiji256/orphan-branch-upload-download-delete-examples).
+Companion actions are available: download at [daiji256/download-from-orphan-branch](https://github.com/Daiji256/download-from-orphan-branch) and delete at [daiji256/delete-orphan-branch](https://github.com/Daiji256/delete-orphan-branch). End-to-end usage examples are provided in [orphan-branch-upload-download-delete-examples](https://github.com/Daiji256/orphan-branch-upload-download-delete-examples).
 
 ## Why use an orphan branch
 
