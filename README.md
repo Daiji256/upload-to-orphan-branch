@@ -49,9 +49,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
+
       - run: |
           mkdir -p dir
           touch dir/{foo,bar}
+
       - uses: daiji256/upload-to-orphan-branch@v0.1.2
         with:
           branch: artifacts-branch-name
