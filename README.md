@@ -41,12 +41,12 @@ A companion download action is available at [daiji256/download-from-orphan-branc
 ## Example
 
 ```yaml
-permissions:
-  contents: write
-
 jobs:
   upload:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
     steps:
       - uses: actions/checkout@v5
       - run: |
