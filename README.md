@@ -8,7 +8,7 @@ Companion actions are available: download at [daiji256/download-from-orphan-bran
 
 - No history; artifacts stay isolated from main code history.
 - Persists while the branch exists (unlike cache or ephemeral workflow artifacts).
-- Easy to embed raw URLs in Issues, PRs, or README.
+- Easy to embed raw URLs in Issues, PRs, or README (e.g. `https://raw.githubusercontent.com/<user>/<repo>/<branch>/<path>`).
 - Shared state across workflows without external storage.
 
 ## How it works
