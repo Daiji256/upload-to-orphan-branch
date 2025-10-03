@@ -1,13 +1,13 @@
 # daiji256/upload-to-orphan-branch
 
-During a GitHub Actions workflow, this action uploads selected files to a Git orphan branch (a branch with no parents). It allows you to persist small generated artifacts (images, JSON, text) and reference them in Issues, PRs, or other workflows.
+During a GitHub Actions workflow, this action uploads selected files to a Git orphan branch (a branch with no parents). It allows you to persist small generated outputs (images, JSON, text) and reference them in Issues, PRs, or other workflows.
 
 Companion actions are available: download at [daiji256/download-from-orphan-branch](https://github.com/Daiji256/download-from-orphan-branch) and delete at [daiji256/delete-orphan-branch](https://github.com/Daiji256/delete-orphan-branch). End-to-end usage examples are provided in [orphan-branch-upload-download-delete-examples](https://github.com/Daiji256/orphan-branch-upload-download-delete-examples).
 
 ## Why use an orphan branch
 
-- No history; artifacts stay isolated from main code history.
-- Persists while the branch exists (unlike cache or ephemeral workflow artifacts).
+- No history; outputs stay isolated from main code history.
+- Persists while the branch exists (unlike cache or ephemeral workflow artifacts).).
 - Easy to embed raw URLs in Issues, PRs, or README (e.g. `https://raw.githubusercontent.com/<user>/<repo>/<branch>/<path>`).
 - Shared state across workflows without external storage.
 
@@ -56,7 +56,7 @@ jobs:
 
       - uses: daiji256/upload-to-orphan-branch@v0.1.2
         with:
-          branch: artifacts-branch-name
+          branch: outputs-branch-name
           path: |
             dir
             !**/bar
