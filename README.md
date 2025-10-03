@@ -54,7 +54,7 @@ jobs:
           mkdir -p dir
           touch dir/{foo,bar}
 
-      - uses: daiji256/upload-to-orphan-branch@v0.1.2
+      - uses: daiji256/upload-to-orphan-branch@v1
         with:
           branch: outputs-branch-name
           path: |
